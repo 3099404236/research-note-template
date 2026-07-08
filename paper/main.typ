@@ -1,7 +1,10 @@
 #import "@preview/preprintx:0.1.0": preprintx
 
+#let zh-serif = ("Noto Serif SC", "Noto Serif CJK SC", "STSong", "SimSun")
+#let zh-sans = ("Noto Sans SC", "Noto Sans CJK SC", "Microsoft YaHei")
+
 #show: preprintx.with(
-  title: "大模型对话姿态的探索性测量",
+  title: [#text(font: zh-serif, weight: "semibold")[大模型对话姿态的探索性测量]],
   authors: (
     ("Author, Replace", "1,*"),
   ),
@@ -14,6 +17,11 @@
   keywords: ([LLM evaluation], [model behavior], [research note], [reproducibility]),
   correspondence: "replace@example.com",
 )
+
+#set text(font: zh-serif, lang: "zh")
+#show heading: set text(font: zh-sans, weight: "semibold")
+#show table: set text(font: zh-serif, size: 8.6pt)
+#show figure.caption: set text(font: zh-serif, size: 8pt)
 
 = 研究问题
 

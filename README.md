@@ -40,6 +40,19 @@ The template is intentionally editable: replace `paper/figures/stance-profiles.s
 with a real chart, replace the example tables with CSV-derived results, and update
 `paper/refs.bib` when you cite related work.
 
+## Chinese Fonts
+
+Chinese fonts are set near the top of `paper/main.typ`:
+
+```typst
+#let zh-serif = ("Noto Serif SC", "Noto Serif CJK SC", "STSong", "SimSun")
+#let zh-sans = ("Noto Sans SC", "Noto Sans CJK SC", "Microsoft YaHei")
+```
+
+Use `zh-serif` for paper-like body text and `zh-sans` for headings. On GitHub
+Actions, the workflow installs Noto CJK fonts so the PDF can render Chinese
+without depending on Windows-only fonts.
+
 ## Citation
 
 Replace this section after Zenodo creates a DOI.
