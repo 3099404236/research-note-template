@@ -22,6 +22,11 @@ jobs:
       - name: Setup Typst
         uses: typst-community/setup-typst@v4
 
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-stix fonts-texgyre fonts-freefont-ttf
+
       - name: Compile PDF
         run: typst compile paper/main.typ paper/main.pdf
 
@@ -42,4 +47,3 @@ jobs:
           else
             echo "PDF unchanged."
           fi
-
