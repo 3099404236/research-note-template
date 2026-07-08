@@ -5,3 +5,4 @@ Thumbs.db
 *.out
 *.tmp
 .workbuddy/
+zenodo-draft.json

@@ -101,3 +101,16 @@ When the user wants a DOI:
    homepage publication record.
 4. Re-run the publish script.
 
+## Zenodo API draft
+
+If the user provides a Zenodo personal access token, do not write it to any file.
+Set it only in the current shell as `ZENODO_TOKEN`, then run:
+
+```powershell
+.\scripts\zenodo-draft.ps1
+```
+
+This creates an unpublished Zenodo draft, uploads `paper/main.pdf` plus a source
+archive, and saves non-secret draft metadata to `zenodo-draft.json`. Use
+`-Publish` only after explicit confirmation because published files and DOI
+cannot be modified in-place.

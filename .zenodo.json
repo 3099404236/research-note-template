@@ -1,19 +1,22 @@
 {
-  "title": "REPLACE_WITH_TITLE",
+  "title": "大模型对话姿态的探索性测量：研究笔记模板与示例",
   "upload_type": "publication",
   "publication_type": "technicalnote",
-  "description": "REPLACE_WITH_ABSTRACT",
+  "description": "A lightweight research note template and example for exploratory AI experiments. The example note demonstrates a reproducible structure for studying conversational stance in large language models, including figures, formulas, result tables, limitations, and a GitHub Pages publication workflow.",
   "creators": [
     {
-      "name": "REPLACE_WITH_NAME",
-      "affiliation": "REPLACE_WITH_AFFILIATION"
+      "name": "3099404236"
     }
   ],
+  "access_right": "open",
   "license": "cc-by-4.0",
+  "version": "v0.0.1-draft",
   "keywords": [
     "AI",
     "LLM",
-    "research note"
+    "research note",
+    "Typst",
+    "Zenodo",
+    "GitHub Pages"
   ]
 }
-

@@ -47,6 +47,29 @@ For continuous editing, use Typst watch:
 typst watch paper/main.typ paper/main.pdf
 ```
 
+## Zenodo API draft
+
+If you want to reserve a Zenodo DOI without using the GitHub repository toggle,
+create a Zenodo personal access token with `deposit:write` and `deposit:actions`,
+then set it only in your shell:
+
+```powershell
+$env:ZENODO_TOKEN="..."
+.\scripts\zenodo-draft.ps1
+```
+
+This creates an unpublished Zenodo draft, uploads `paper/main.pdf` and a source
+archive, and writes the draft id/URL/reserved DOI to `zenodo-draft.json`.
+
+Publishing is intentionally separate:
+
+```powershell
+.\scripts\zenodo-draft.ps1 -Publish
+```
+
+Only publish when the metadata and files are ready. After publishing, files and
+the persistent identifier cannot be modified in-place; use a new version instead.
+
 ## Notes
 
 - Google Scholar indexing is not guaranteed. The homepage is only structured to make indexing easier.
