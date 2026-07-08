@@ -3,6 +3,7 @@ param(
   [string]$MetadataPath = ".zenodo.json",
   [string]$PdfPath = "paper\main.pdf",
   [string]$OutputPath = "zenodo-draft.json",
+  [string]$DepositionId = "",
   [switch]$Publish
 )
 
@@ -15,17 +16,15 @@ function Invoke-Zenodo {
     [object]$Body = $null
   )
 
-  $headers = @{
-    "Authorization" = "Bearer $env:ZENODO_TOKEN"
-    "Content-Type" = "application/json"
-  }
+  $headers = @{ "Authorization" = "Bearer $env:ZENODO_TOKEN" }
 
   if ($null -eq $Body) {
     return Invoke-RestMethod -Method $Method -Uri $Uri -Headers $headers
   }
 
   $json = $Body | ConvertTo-Json -Depth 20
-  return Invoke-RestMethod -Method $Method -Uri $Uri -Headers $headers -Body $json
+  $bytes = [System.Text.Encoding]::UTF8.GetBytes($json)
+  return Invoke-RestMethod -Method $Method -Uri $Uri -Headers $headers -Body $bytes -ContentType "application/json; charset=utf-8"
 }
 
 function Upload-ZenodoFile {
@@ -77,8 +76,13 @@ try {
   }
   $payload.metadata | Add-Member -NotePropertyName "prereserve_doi" -NotePropertyValue $true -Force
 
-  Write-Host "Creating Zenodo draft deposition..."
-  $deposition = Invoke-Zenodo -Method Post -Uri "$ApiBase/deposit/depositions" -Body $payload
+  if ([string]::IsNullOrWhiteSpace($DepositionId)) {
+    Write-Host "Creating Zenodo draft deposition..."
+    $deposition = Invoke-Zenodo -Method Post -Uri "$ApiBase/deposit/depositions" -Body $payload
+  } else {
+    Write-Host "Updating Zenodo draft deposition $DepositionId..."
+    $deposition = Invoke-Zenodo -Method Put -Uri "$ApiBase/deposit/depositions/$DepositionId" -Body $payload
+  }
   $depositionId = $deposition.id
   $bucket = $deposition.links.bucket
 
