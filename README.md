@@ -32,6 +32,18 @@ Replace this section with a short 3-5 sentence summary:
 typst compile paper/main.typ paper/main.pdf
 ```
 
+For the full local-to-GitHub-to-homepage flow, run:
+
+```powershell
+.\scripts\publish-note.ps1 -Message "Update research note" -RenderPages 2
+```
+
+For a quick local check without publishing:
+
+```powershell
+.\scripts\publish-note.ps1 -LocalOnly -RenderPages 2
+```
+
 Put experiment code in `code/`, small datasets or dataset cards in `data/`, and outputs in `results/`.
 
 If `typst` is not on your PATH on Windows after installation, open a new terminal or call the installed executable directly.

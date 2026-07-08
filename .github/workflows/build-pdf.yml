@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
@@ -35,15 +35,3 @@ jobs:
         with:
           name: research-note-pdf
           path: paper/main.pdf
-
-      - name: Commit PDF if changed
-        run: |
-          if [[ -n "$(git status --porcelain paper/main.pdf)" ]]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add paper/main.pdf
-            git commit -m "Build research note PDF"
-            git push
-          else
-            echo "PDF unchanged."
-          fi
