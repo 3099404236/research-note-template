@@ -32,6 +32,8 @@ Replace this section with a short 3-5 sentence summary:
 typst compile paper/main.typ paper/main.pdf
 ```
 
+For Codex or another coding agent, start from [`AGENT_BRIEF.md`](AGENT_BRIEF.md).
+
 For the full local-to-GitHub-to-homepage flow, run:
 
 ```powershell
