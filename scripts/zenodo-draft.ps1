@@ -24,7 +24,7 @@ function Invoke-Zenodo {
 
   $json = $Body | ConvertTo-Json -Depth 20
   $bytes = [System.Text.Encoding]::UTF8.GetBytes($json)
-  return Invoke-RestMethod -Method $Method -Uri $Uri -Headers $headers -Body $bytes -ContentType "application/json; charset=utf-8"
+  return Invoke-RestMethod -Method $Method -Uri $Uri -Headers $headers -Body $bytes -ContentType "application/json"
 }
 
 function Upload-ZenodoFile {
