@@ -114,3 +114,15 @@ This creates an unpublished Zenodo draft, uploads `paper/main.pdf` plus a source
 archive, and saves non-secret draft metadata to `zenodo-draft.json`. Use
 `-Publish` only after explicit confirmation because published files and DOI
 cannot be modified in-place.
+
+Default policy:
+
+- Ordinary edits should update GitHub and GitHub Pages only.
+- Zenodo should be treated as a milestone archive, not as the working copy.
+- It is acceptable to maintain an unpublished Zenodo draft with a reserved DOI
+  while the work is still changing.
+- Do not publish a Zenodo record unless the user explicitly says something like
+  "正式发布", "publish to Zenodo", or "release v1".
+- Once published, that version's files remain permanently available. Later work
+  should continue in GitHub and become a new Zenodo version only at the next
+  milestone.

@@ -61,6 +61,17 @@ $env:ZENODO_TOKEN="..."
 This creates an unpublished Zenodo draft, uploads `paper/main.pdf` and a source
 archive, and writes the draft id/URL/reserved DOI to `zenodo-draft.json`.
 
+### Working rule
+
+Use Zenodo as a milestone archive, not as the daily working copy.
+
+- Daily edits: update GitHub and GitHub Pages.
+- In-progress public placeholder: keep an unpublished Zenodo draft with a
+  reserved DOI.
+- Formal milestone: publish the Zenodo record only when explicitly ready.
+- Later research stages: keep working in GitHub, then create a new Zenodo version
+  when the next stage is ready.
+
 Publishing is intentionally separate:
 
 ```powershell
