@@ -1,0 +1,45 @@
+name: Build Typst PDF
+
+on:
+  push:
+    paths:
+      - "paper/**/*.typ"
+      - "paper/**/*.bib"
+      - "paper/figures/**"
+      - ".github/workflows/build-pdf.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Compile PDF
+        run: typst compile paper/main.typ paper/main.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-note-pdf
+          path: paper/main.pdf
+
+      - name: Commit PDF if changed
+        run: |
+          if [[ -n "$(git status --porcelain paper/main.pdf)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add paper/main.pdf
+            git commit -m "Build research note PDF"
+            git push
+          else
+            echo "PDF unchanged."
+          fi
+

@@ -1,0 +1,19 @@
+{
+  "title": "REPLACE_WITH_TITLE",
+  "upload_type": "publication",
+  "publication_type": "technicalnote",
+  "description": "REPLACE_WITH_ABSTRACT",
+  "creators": [
+    {
+      "name": "REPLACE_WITH_NAME",
+      "affiliation": "REPLACE_WITH_AFFILIATION"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "keywords": [
+    "AI",
+    "LLM",
+    "research note"
+  ]
+}
+

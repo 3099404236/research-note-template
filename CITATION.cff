@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this research note, please cite it using the metadata below."
+title: "REPLACE_WITH_TITLE"
+authors:
+  - family-names: "REPLACE_WITH_FAMILY_NAME"
+    given-names: "REPLACE_WITH_GIVEN_NAME"
+date-released: "2026-07-08"
+license: "CC-BY-4.0"
+url: "https://github.com/REPLACE_WITH_USERNAME/REPLACE_WITH_REPO"
+
